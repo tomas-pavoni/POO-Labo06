@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         //TODO
-        System.out.println("Test");
+        Professeur DRE = new Professeur("Daniel", "Rossier", "DRE", null);
+        System.out.println(DRE);
     }
 }

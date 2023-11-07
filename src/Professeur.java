@@ -1,7 +1,7 @@
 public class Professeur extends Personne{
     private final String abreviation;
 
-    private final Lecon[] lecons;
+    private final Lecon[] lecons;//todo difference betwen 0..* and 1..*
 
     Professeur(String prenom, String nom, String abreviation, Lecon[] lecons) {
         this.prenom = prenom;
@@ -10,7 +10,7 @@ public class Professeur extends Personne{
         this.lecons = lecons;
     }
 
-    public String getAbreviation() {
+    public String abreviation() {
         return abreviation;
     }
 

@@ -3,7 +3,7 @@ public abstract class Personne {
     protected String prenom;
 
     public String toString() {
-        return nom + " " + prenom;
+        return prenom + " " + nom;
     }
 
 }
