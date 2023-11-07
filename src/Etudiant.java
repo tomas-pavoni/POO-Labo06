@@ -1,11 +1,16 @@
 public class Etudiant extends Personne {
-    private int matricule;
+    private final int matricule;
 
-    Etudiant(int matricule) {
+    private final Groupe groupe;
+
+    Etudiant(String prenom, String nom, int matricule, Groupe groupe) {
+        this.prenom = prenom;
+        this.nom = nom;
         this.matricule = matricule;
+        this.groupe = groupe;
     }
 
     public String toString() {
-        return super.toString() + Integer.toString(matricule);
+        return "Etud. " + super.toString() + " (#" + matricule + ")";
     }
 }
