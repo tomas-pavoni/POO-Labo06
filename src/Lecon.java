@@ -16,6 +16,30 @@ public class Lecon {
         this.professeur = professeur;
     }
 
+    int getDebut(){
+        return periodeDebut;
+    }
+
+    int getDuree(){
+        return duree;
+    }
+
+    int getJourSemaine(){
+        return jourSemaine;
+    }
+
+    String getNom(){
+        return matiere;
+    }
+
+    String getSalle(){
+        return salle;
+    }
+
+    Professeur getProfesseur(){
+        return professeur;
+    }
+
     //public STATIC String horaire() {}
     // La méthode horaire() dans la classe Leçon est statique (indépendante de tout objet).
 }
