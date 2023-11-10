@@ -5,18 +5,17 @@ public class Lecon {
     private final int periodeDebut;
     private final int duree;
     private final Professeur professeur;
-    private final Groupe[] groupes;
 
     Lecon(String matiere, String salle, int jourSemaine, int periodeDebut,
-          int duree, Professeur professeur, Groupe[] groupes) {
+          int duree, Professeur professeur) {
         this.matiere = matiere;
         this.salle = salle;
         this.jourSemaine = jourSemaine;
         this.periodeDebut = periodeDebut;
         this.duree = duree;
         this.professeur = professeur;
-        this.groupes = groupes;
     }
 
-    //public String horaire() {}
+    //public STATIC String horaire() {}
+    // La méthode horaire() dans la classe Leçon est statique (indépendante de tout objet).
 }
