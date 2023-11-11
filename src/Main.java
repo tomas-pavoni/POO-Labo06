@@ -1,6 +1,14 @@
 import java.util.ArrayList;
 
+/** Cette classe contient la fonction principale de notre projet
+ */
 public class Main {
+    /** Cette fonction main s'exécute de la même manière indépendamment de ses paramètres.
+     * Nous y créons 2 professeurs, 6 leçons, 6 étudiants qui sont ensuite répartis en 2 groupes, avant de répartir
+     * les leçons entre les 2 groupes. Enfin, nous affichons les information des professeurs et étudiants ainsi que
+     * l'horaire du premier groupe et du deuxième professeur.
+     * @param args n'est pas utilisé.
+     */
     public static void main(String[] args) {
         //1
         Professeur dre = new Professeur("Daniel", "Rossier", "DRE");
