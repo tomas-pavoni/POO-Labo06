@@ -1,8 +1,7 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        //TODO
-        System.out.println("-- Membres de l'ecole\n");
-
         //1
         Professeur pdo = new Professeur("Pier", "Donini", "PDO");
         Professeur dre = new Professeur("Daniel", "Rossier", "DRE");
@@ -28,28 +27,33 @@ public class Main {
         Groupe si61 = new Groupe(1, "SI", 6, new Etudiant[]{rw, dg});
 
         //5
-        il61.definirLecons(poo1);
-        il61.definirLecons(poo2);
-        il61.definirLecons(poo3);
-        il61.definirLecons(sye1);
-        il61.definirLecons(sye2);
-        il61.definirLecons(tic);
-        si61.definirLecons(poo1);
-        si61.definirLecons(poo2);
-        si61.definirLecons(poo1);
+        ArrayList<Lecon> pooLecons = new ArrayList<>();
+        pooLecons.add(poo1);
+        pooLecons.add(poo2);
+        pooLecons.add(poo3);
+
+        ArrayList<Lecon> lecons = new ArrayList<>(pooLecons);
+        lecons.add(sye1);
+        lecons.add(sye2);
+        lecons.add(tic);
+
+        si61.definirLecons(pooLecons);
+        il61.definirLecons(lecons);
+
 
         //6
+        System.out.println("-- Membres de l'ecole\n");
         Personne[] personnes = {pdo, dre, jl, pm, rs, gh, rw, dg};
         for(Personne p : personnes){
             System.out.println(p);
         }
 
         //7
-        System.out.println("\n-- Horaire du groupe " + il61.nom() + " (" + il61.nombreEtudiants() + (" etudiants)") );
+        System.out.println();
         System.out.println(il61.horaire());
 
         //8
-        System.out.println("-- Horaire " + pdo);
+        System.out.println();
         System.out.println(pdo.horaire());
     }
 }

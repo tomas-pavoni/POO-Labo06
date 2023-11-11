@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Professeur extends Personne{
     private final String abreviation;
 
-    private final ArrayList<Lecon> lecons;//todo difference betwen 0..* and 1..*
+    private final ArrayList<Lecon> lecons;
 
     Professeur(String prenom, String nom, String abreviation) {
         this.prenom = prenom;
@@ -12,15 +12,18 @@ public class Professeur extends Personne{
         this.lecons = new ArrayList<>();
     }
 
+    void ajouterLecon(Lecon lecon){
+        this.lecons.add(lecon);
+    }
+
     public String abreviation() {
         return abreviation;
     }
 
-    private void ajouterLecon(Lecon lecon){
-        this.lecons.add(lecon);
+    public String horaire() {
+        return "-- Horaire du Prof. " + this + "\n\n"
+                +  Lecon.horaire(this.lecons);
     }
-
-    public String horaire() {return null;}
 
     public String toString() {
         return "Prof. " + super.toString() + " (" + abreviation + ")";
