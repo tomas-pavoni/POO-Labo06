@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         //1
-        Professeur pdo = new Professeur("Pier", "Donini", "PDO");
         Professeur dre = new Professeur("Daniel", "Rossier", "DRE");
+        Professeur pdo = new Professeur("Pier", "Donini", "PDO");
 
         //2
         Lecon poo1 = new Lecon("POO", "H02", 3, 6, 2, pdo);
@@ -37,8 +37,8 @@ public class Main {
         lecons.add(sye2);
         lecons.add(tic);
 
-        si61.definirLecons(pooLecons);
         il61.definirLecons(lecons);
+        si61.definirLecons(pooLecons);
 
 
         //6
