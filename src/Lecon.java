@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+/** Cette classe définit les méthodes et données membres d'une leçon telle que définie dans la donnée.
+ */
 public class Lecon {
     private final String matiere;
     private final String salle;
@@ -8,8 +10,29 @@ public class Lecon {
     private final int duree;
     private final Professeur professeur;
 
+    /** Constructeur de leçon. Celui-affecte également la leçon au professeur.
+     * @param matiere nom de la matière
+     * @param salle nom de la salle où aura lieu la leçon
+     * @param jourSemaine jour de la semaine (1 = lundi, 5 = vendredi)
+     * @param periodeDebut période (entre 1 et 11)
+     * @param duree (entre 1 et 11)
+     * @param professeur professeur auquel affecter la leçon
+     * @throws RuntimeException en cas de paramètres posant problème pour l'affichage ou logiquement invalides.
+     */
     Lecon(String matiere, String salle, int jourSemaine, int periodeDebut,
           int duree, Professeur professeur) {
+        if(matiere == null || salle == null){
+            throw new RuntimeException("La matière et la salle doivent avoir une valeur autre que null.");
+        }
+        if(jourSemaine < 1 || jourSemaine > 5){
+            throw new RuntimeException("Le jour de la semaine doit être compris entre 1 (lundi) et 5 (vendredi)");
+        }
+        if(periodeDebut > 11 || periodeDebut < 1 || duree > 11 || duree < 1){
+            throw new RuntimeException("La période de début et la durée doivent être comprises entre 1 et 11");
+        }
+        if (periodeDebut + duree > 11){
+            throw new RuntimeException("Une leçon ne peut pas durer jusqu'à plus de la 11ème période");
+        }
         this.matiere = matiere;
         this.salle = salle;
         this.jourSemaine = jourSemaine;
@@ -21,30 +44,52 @@ public class Lecon {
         }
     }
 
+    /** Getter pour la période de début
+     * @returns période de début de la leçon
+     */
     int getDebut(){
         return periodeDebut;
     }
 
+    /** Getter pour la durée
+     * @returns durée de la leçon
+     */
     int getDuree(){
         return duree;
     }
 
+    /** Getter pour le jour de la semaine
+     * @returns jour de la semaine de la leçon
+     */
     int getJourSemaine(){
         return jourSemaine;
     }
 
+    /** Getter pour le nom
+     * @returns nom de la matière
+     */
     String getNom(){
         return matiere;
     }
 
+    /** Getter pour la salle
+     * @returns salle dans laquelle est donnée la leçon
+     */
     String getSalle(){
         return salle;
     }
 
+    /** Getter pour le professeur
+     * @returns professeur donnant la leçon
+     */
     Professeur getProfesseur(){
         return professeur;
     }
 
+    /** Méthode d'affichage d'horaire sous forme tabulaire.
+     * @param lecons leçons à inclure dans l'horaire
+     * @returns chaîne de caractères permettant d'afficher un horaire sous forme de table contenant les leçons
+     */
     public static String horaire(ArrayList<Lecon> lecons) {
         int rows = 11;
         int columns = 5;

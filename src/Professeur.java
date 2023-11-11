@@ -41,7 +41,7 @@ public class Professeur extends Personne{
         return abreviation;
     }
 
-    /** Retourne l'horaire à afficher pour le professeur, précédé d'une ligne de texte.
+    /** Retourne l'horaire à afficher pour le professeur, précédé d'une ligne d'informations.
      * @returns la chaîne de caractères à afficher
      */
     public String horaire() {
