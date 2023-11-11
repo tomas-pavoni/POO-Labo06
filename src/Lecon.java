@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.concurrent.ScheduledFuture;
 
 public class Lecon {
     private final String matiere;
@@ -91,7 +90,7 @@ public class Lecon {
 
         for (int i = 0; i < rows; ++i) {
             schedule.append(heuresPeriodes[i]);
-            //Displays course
+            // Affiche un cours
             for (int k = 0; k < columns; k++) {
                 String s = i > 0
                         && i < rows - 1
@@ -103,7 +102,7 @@ public class Lecon {
             }
             schedule.append("|\n");
             schedule.append("     ");
-            //Displays separtor
+            // Affiche un séparateur
             for (int j = 0; j < columns; j++) {
                 String s = i < rows - 1
                         && emploiDuTemps[i][j].equals(emploiDuTemps[i + 1][j])

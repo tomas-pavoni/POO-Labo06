@@ -10,7 +10,7 @@ public class Groupe {
 
     Groupe(int numero, String orientation, int trimestre, Etudiant[] etudiants) {
         if(etudiants.length == 0) {
-            throw new RuntimeException("Groupe must contain at least 1 student");
+            throw new RuntimeException("Groupe doit contenir au moins un étudiant");
         }
         this.numero = numero;
         this.orientation = orientation;
@@ -24,7 +24,7 @@ public class Groupe {
 
     public void definirLecons(ArrayList<Lecon> lecons){
         if(lecons.isEmpty()) {
-            throw new RuntimeException("Must contain at least 1 course");
+            throw new RuntimeException("Doit contenir au moins un cours");
         }
         this.lecons.addAll(lecons);
     }
