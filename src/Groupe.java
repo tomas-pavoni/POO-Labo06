@@ -23,13 +23,16 @@ public class Groupe {
         if(orientation == null){
             throw new RuntimeException("L'orientation d'un groupe doit être définie.");
         }
+        for(Etudiant e : etudiants){
+            if(e == null){
+                throw new RuntimeException("Un étudiant du groupe ne peut pas être null.");
+            }
+            e.definirGroupe(this);
+        }
         this.numero = numero;
         this.orientation = orientation;
         this.trimestre = trimestre;
         this.etudiants = etudiants;
-        for(Etudiant e : etudiants){
-            e.definirGroupe(this);
-        }
         this.lecons = new ArrayList<>();
     }
 
