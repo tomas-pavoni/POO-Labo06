@@ -28,7 +28,7 @@ public class Etudiant extends Personne {
     }
 
     /** Retourne les informations à afficher pour l'étudiant.
-     * @returns la chaîne de caractères à afficher
+     * @return la chaîne de caractères à afficher
      */
     public String toString() {
         return "Etud. " + super.toString() + " (#" + matricule + ")" + (groupe == null ? "" : " - " + groupe.nom());

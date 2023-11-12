@@ -5,7 +5,7 @@ public abstract class Personne {
     protected String prenom;
 
     /** Retourne le prénom et nom de la personne pour l'affichage
-     * @returns la chaîne de caractères à afficher
+     * @return la chaîne de caractères à afficher
      */
     public String toString() {
         return prenom + " " + nom;

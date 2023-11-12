@@ -37,7 +37,7 @@ public class Groupe {
     }
 
     /** Setter pour les leçons du groupe
-     * @param lecons
+     * @param lecons leçon à affecter au groupe
      * @throws RuntimeException en cas de définition sans leçon.
      */
     public void definirLecons(ArrayList<Lecon> lecons){
@@ -48,7 +48,7 @@ public class Groupe {
     }
 
     /** Retourne l'horaire à afficher pour le groupe, précédé d'une ligne d'informations.
-     * @returns la chaîne de caractères à afficher
+     * @return la chaîne de caractères à afficher
      */
     public String horaire(){
         return "-- Horaire du groupe " + this.nom() + " (" + this.nombreEtudiants() + " etudiants)\n\n"
@@ -56,14 +56,14 @@ public class Groupe {
     }
 
     /** Retourne le nom du groupe pour affichage par les autres classes.
-     * @returns la chaîne de caractères définie comme nom du groupe
+     * @return la chaîne de caractères définie comme nom du groupe
      */
     public String nom(){
         return orientation + trimestre + "-" + numero;
     }
 
     /** Méthode permettant de connaître le nombre d'étudiants dans un groupe.
-     * @returns le nombre d'étudiants
+     * @return le nombre d'étudiants
      */
     public int nombreEtudiants(){
         return etudiants.length;

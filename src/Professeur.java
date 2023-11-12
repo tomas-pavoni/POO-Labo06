@@ -35,14 +35,14 @@ public class Professeur extends Personne{
     }
 
     /** Getteur pour l'abréviation du professeur.
-     * @returns l'abréviation du professeur
+     * @return l'abréviation du professeur
      */
     public String abreviation() {
         return abreviation;
     }
 
     /** Retourne l'horaire à afficher pour le professeur, précédé d'une ligne d'informations.
-     * @returns la chaîne de caractères à afficher
+     * @return la chaîne de caractères à afficher
      */
     public String horaire() {
         return "-- Horaire du Prof. " + this + "\n\n"
@@ -50,7 +50,7 @@ public class Professeur extends Personne{
     }
 
     /** Retourne les informations à afficher pour le professeur.
-     * @returns la chaîne de caractères à afficher
+     * @return la chaîne de caractères à afficher
      */
     public String toString() {
         return "Prof. " + super.toString() + " (" + abreviation + ")";

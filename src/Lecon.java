@@ -45,42 +45,42 @@ public class Lecon {
     }
 
     /** Getter pour la période de début
-     * @returns période de début de la leçon
+     * @return période de début de la leçon
      */
     int getDebut(){
         return periodeDebut;
     }
 
     /** Getter pour la durée
-     * @returns durée de la leçon
+     * @return durée de la leçon
      */
     int getDuree(){
         return duree;
     }
 
     /** Getter pour le jour de la semaine
-     * @returns jour de la semaine de la leçon
+     * @return jour de la semaine de la leçon
      */
     int getJourSemaine(){
         return jourSemaine;
     }
 
     /** Getter pour le nom
-     * @returns nom de la matière
+     * @return nom de la matière
      */
     String getNom(){
         return matiere;
     }
 
     /** Getter pour la salle
-     * @returns salle dans laquelle est donnée la leçon
+     * @return salle dans laquelle est donnée la leçon
      */
     String getSalle(){
         return salle;
     }
 
     /** Getter pour le professeur
-     * @returns professeur donnant la leçon
+     * @return professeur donnant la leçon
      */
     Professeur getProfesseur(){
         return professeur;
@@ -88,7 +88,7 @@ public class Lecon {
 
     /** Méthode d'affichage d'horaire sous forme tabulaire.
      * @param lecons leçons à inclure dans l'horaire
-     * @returns chaîne de caractères permettant d'afficher un horaire sous forme de table contenant les leçons
+     * @return chaîne de caractères permettant d'afficher un horaire sous forme de table contenant les leçons
      */
     public static String horaire(ArrayList<Lecon> lecons) {
         int rows = 11;
@@ -103,26 +103,21 @@ public class Lecon {
             int startCase = lecon.getDebut();
             int day = lecon.getJourSemaine();
             String printProf = "   ";
-            if(lecon.getProfesseur() != null){
+            if (lecon.getProfesseur() != null) {
                 printProf = lecon.getProfesseur().abreviation();
             }
 
             String lessonInfo = lecon.getNom() + "   " + lecon.getSalle() + " " + printProf;
-            int duration = lecon.getDuree();
 
-            for (int i = 0; i < duration; i++) {
-                emploiDuTemps[startCase + i - 1][day - 1] = lessonInfo;
-                leconsArr[startCase + i - 1][day - 1] = lecon;
-            }
-        }
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < columns; j++) {
-                if(emploiDuTemps[i][j] == null
-                        || i > 0
-                        && emploiDuTemps[i][j].equals(emploiDuTemps[i - 1][j])
-                        && !emploiDuTemps[i][j].equals(spaces)) {
-                    emploiDuTemps[i][j] = spaces;
-                    leconsArr[i][j] = null;
+            emploiDuTemps[startCase - 1][day - 1] = lessonInfo;
+            leconsArr[startCase - 1][day - 1] = lecon;
+
+            // On remplace les cases nulles avec des espaces
+            for (int i = 0; i < rows; ++i) {
+                for (int j = 0; j < columns; j++) {
+                    if (emploiDuTemps[i][j] == null) {
+                        emploiDuTemps[i][j] = spaces;
+                    }
                 }
             }
         }
