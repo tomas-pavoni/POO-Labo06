@@ -96,6 +96,7 @@ public class Lecon {
         String lines = "-------------";
         String spaces = "             ";
         String[][] emploiDuTemps = new String[rows][columns];
+        Lecon[][] leconsArr = new Lecon[rows][columns];
 
         // Remplissage de l'emploi du temps avec les informations des leçons
         for (Lecon lecon : lecons) {
@@ -111,12 +112,17 @@ public class Lecon {
 
             for (int i = 0; i < duration; i++) {
                 emploiDuTemps[startCase + i - 1][day - 1] = lessonInfo;
+                leconsArr[startCase + i - 1][day - 1] = lecon;
             }
         }
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < columns; j++) {
-                if(emploiDuTemps[i][j] == null) {
+                if(emploiDuTemps[i][j] == null
+                        || i > 0
+                        && emploiDuTemps[i][j].equals(emploiDuTemps[i - 1][j])
+                        && !emploiDuTemps[i][j].equals(spaces)) {
                     emploiDuTemps[i][j] = spaces;
+                    leconsArr[i][j] = null;
                 }
             }
         }
@@ -136,22 +142,16 @@ public class Lecon {
         for (int i = 0; i < rows; ++i) {
             schedule.append(heuresPeriodes[i]);
             // Affiche un cours
-            for (int k = 0; k < columns; k++) {
-                String s = i > 0
-                        && i < rows - 1
-                        && emploiDuTemps[i][k].equals(emploiDuTemps[i - 1][k])
-                        && !emploiDuTemps[i][k].equals(emploiDuTemps[i + 1][k])
-                        && !emploiDuTemps[i][k].equals(spaces) ? spaces : emploiDuTemps[i][k];
-                String sf1 = String.format("|%s", s);
-                schedule.append(sf1);
-            }
-            schedule.append("|\n");
-            schedule.append("     ");
+            String sf1 = String.format("|%s|%s|%s|%s|%s|\n     ",
+                    emploiDuTemps[i][0],
+                    emploiDuTemps[i][1],
+                    emploiDuTemps[i][2],
+                    emploiDuTemps[i][3],
+                    emploiDuTemps[i][4]);
+            schedule.append(sf1);
             // Affiche un séparateur
             for (int j = 0; j < columns; j++) {
-                String s = i < rows - 1
-                        && emploiDuTemps[i][j].equals(emploiDuTemps[i + 1][j])
-                        && !emploiDuTemps[i][j].equals(spaces) ? spaces : lines;
+                String s = leconsArr[i][j] != null && leconsArr[i][j].getDuree() == 2 ? spaces : lines;
                 String sf2 = String.format("|%s", s);
                 schedule.append(sf2);
             }
